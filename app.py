@@ -26,7 +26,7 @@ def api():
     peer = request.args.get('peer')
     msg = request.args.get('msg')
     token = request.args.get('token')
-    return '{0} wrote: {1}'.format(peer, msg)
+    return jsonify({ 'answer': lp.get_answer(peer, msg) })
 
 if __name__ == '__main__':
     app.run(debug=True,port=PORT)
