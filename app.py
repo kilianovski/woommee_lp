@@ -15,7 +15,7 @@ with open(abs_file_path) as json_data_file:
     CONFIG = dict(json.load(json_data_file))
 
 app = Flask(__name__)
-PORT = 9090
+PORT = 6789
 
 @app.route('/')
 def index():
