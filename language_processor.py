@@ -21,10 +21,8 @@ def get_answer(user, question):
     
     if 'погода' in morph.normal_forms(question_tokens[0]):
         word1 = morph.normal_forms(question_tokens[1])[0]
-        if len(question_tokens ) > 2:
-            word2 = morph.normal_forms(question_tokens[2])
-            if word2 in CITIES:
-                weather = getWeather(word2)
+        if len(question_tokens ) > 2 and morph.normal_forms(question_tokens[2])[0] in CITIES:
+            weather = getWeather(morph.normal_forms(question_tokens[2])[0])
         elif word1 in CITIES:
             weather = getWeather(word1)
         else:
@@ -45,4 +43,4 @@ def getWeather(city):
     
 
 
-print(get_answer("asdf",'погода Киев'))
+print(get_answer("asdf",'погода в Киеве'))
